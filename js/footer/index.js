@@ -10,6 +10,7 @@ export default class Footer extends Component{
 	handleClick = (e) => this.setState({id:e.target.value});
 
 	render(){
+		let id = this.state.id;
 		return <div className="footer">
 			<div className="row">
 				<div className="col-md-4">
@@ -23,12 +24,14 @@ export default class Footer extends Component{
 					</ul>
 				</div>
 				<div className="col-md-4">
-					<ul ref="ul_list" className="nav nav-pills nav-stacked">
-					  <li role="1">Москва,ул.Минская д.2Ж</li>
-					  <li role="2" id="special">Ежедневно с 10 до 19 часов, кроме субботы и воскресенья</li>
-					  <li role="3">info@minskayaplaza.ru</li>
-					  <li role="4">Славянский бульвар</li>
-					  <li role="5">+7 (495) 799 07 07</li>
+					<ul ref="ul_list" 
+						className="nav nav-pills nav-stacked"
+						onClick={::this.handleClick} >
+					  <li value="1" style={id == 1 ? {color: '#fff'} : {}}>Москва,ул.Минская д.2Ж</li>
+					  <li value="2" style={id == 2 ? {color: '#fff'} : {}} id="special">Ежедневно с 10 до 19 часов, кроме субботы и воскресенья</li>
+					  <li value="3" style={id == 3 ? {color: '#fff'} : {}}>info@minskayaplaza.ru</li>
+					  <li value="4" style={id == 4 ? {color: '#fff'} : {}}>Славянский бульвар</li>
+					  <li value="5" style={id == 5 ? {color: '#fff'} : {}}>+7 (495) 799 07 07</li>
 					</ul>
 				</div>
 				<div className="col-md-4">

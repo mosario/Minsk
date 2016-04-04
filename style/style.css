@@ -325,6 +325,7 @@
 	    			color:#9d9d9d;
 	    			font-family: 'Roboto';
 	    			padding-top: 15px;
+	    			cursor: pointer;
 	    			img{
 	    				cursor: pointer;
 	    			}
