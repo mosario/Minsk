@@ -37,7 +37,7 @@ module.exports = {
         ]
     },
     postcss: function () {
-        return [require('autoprefixer'), require('precss'), require('postcss-assets')];
+        return [require('autoprefixer'), require('precss'), require('postcss-mixins'), require('postcss-assets')];
     }
 };
 

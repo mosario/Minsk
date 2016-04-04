@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import { TITLE_TEXT_ONE, TITLE_TEXT_TWO } from '../text/main' 
 import Gallery from '../gallery'
+import About from './about'
+import BigGallery from '../gallery/big_gallery'
+import RequestCall from './request_call'
+import LogoGroup from './logo-group'
 
 export default class Main extends Component{
 	render(){
@@ -14,6 +18,10 @@ export default class Main extends Component{
 				<p>{TITLE_TEXT_TWO}</p>
 			</div>
 			<Gallery />
+			<About />
+			<BigGallery />
+			<RequestCall />
+			<LogoGroup />
 		</div>
 	}
 }
