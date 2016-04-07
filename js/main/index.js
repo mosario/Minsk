@@ -3,6 +3,7 @@ import { TITLE_TEXT_ONE, TITLE_TEXT_TWO } from '../text/main'
 import Gallery from '../gallery'
 import About from './about'
 import BigGallery from '../gallery/big_gallery'
+import Calculator from './calculator'
 import RequestCall from './request_call'
 import LogoGroup from './logo-group'
 
@@ -20,6 +21,7 @@ export default class Main extends Component{
 			<Gallery />
 			<About />
 			<BigGallery />
+			<Calculator />
 			<RequestCall />
 			<LogoGroup />
 		</div>
