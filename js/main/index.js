@@ -11,8 +11,8 @@ export default class Main extends Component{
 	render(){
 		return <div className="main">
 			<div className="title">
-				<p style={{paddingTop:10}}>бизнес центр</p>
-				<p style={{marginTop:'-20px'}}>минская плаза</p>
+				<p id="t1" style={{paddingTop:10}}>бизнес центр</p>
+				<p id="t1" style={{marginTop:'-20px'}}>минская плаза</p>
 			</div>
 			<div className="title-text">
 				<p>{TITLE_TEXT_ONE}</p>
