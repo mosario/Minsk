@@ -190,7 +190,7 @@
 		padding-top: 140px;
 		p#title{
 			@mixin title;
-			text-align: left !important;
+			text-align: left;
 			margin-left: 34%;
 			margin-bottom: 150px; 
 		}
@@ -512,6 +512,15 @@
 	}
 }
 @media (max-width: 960px){
+	.header{
+		.navbar-collapse{
+			position: relative;
+			top:25px;
+			ul{
+				display: flex;
+			}
+		}
+	}
 	.footer{
 		height: auto !important;
 	}
@@ -520,6 +529,28 @@
 	}
 }
 @media (max-width: 768px){
+	.about{
+		p#title{
+			text-align: center !important;
+			margin-left: 0 !important;
+		}
+		.about-item{
+			img{
+				position: relative;
+   				left: 35%;
+   				margin-bottom: 20px;
+   				float: none !important;
+			}
+			#text{
+				p{
+					width: 100% !important;
+				    text-align: center;
+				    margin-left: 0 !important;
+				    padding-left: 0;					
+				}	
+			}
+		}
+	}
 	.footer{
 		height: auto !important;
 		.row{
@@ -543,5 +574,37 @@
 	}
 	.header{
 		margin: 0;
+		.navbar-collapse{
+			position: relative;
+			top:25px;
+			ul{
+				display: block !important;
+			}
+		}
+	}
+}
+@media (max-width: 660px){
+	.header-top{
+		height: 100px !important;
+		.col-md-8{
+			width: 50%;
+			float: left;
+			.contacts{
+				height: auto;
+				a{
+					display: block !important;
+					float: none;
+					&#mail{
+						margin-left: 0;
+					}
+				}
+			}
+		}
+		.social{
+			width: 40%;
+		    float: left;
+		    position: relative;
+		    top: 40%;
+		}
 	}
 }
