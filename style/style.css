@@ -522,7 +522,7 @@
 	.header{
 		.navbar-collapse{
 			position: relative;
-			top:25px;
+			top:0 !important;
 			ul{
 				display: flex;
 			}
@@ -543,6 +543,36 @@
 			padding-bottom: 20px;
 		}
 		height: auto !important;
+	}
+}
+@media (max-width: 934px){
+	.header{
+		.navbar-collapse{
+			position: relative;
+			top:-45px !important;
+			ul{
+				display: flex;
+			}
+		}
+	}
+}
+@media (max-width: 868px){
+	.header{
+		.navbar-collapse{
+			position: relative;
+			top:0 !important;
+		}
+		.navbar-default ul li a{
+			padding: 10px;
+		}
+	}
+}
+@media (max-width: 855px){
+	.header{
+		.navbar-collapse{
+			position: relative;
+			top:-45px !important;
+		}
 	}
 }
 @media (max-width: 768px){
