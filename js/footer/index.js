@@ -34,7 +34,7 @@ export default class Footer extends Component{
 					  <li value="5" style={id == 5 ? {color: '#fff'} : {}}>+7 (495) 799 07 07</li>
 					</ul>
 				</div>
-				<div className="col-md-4">
+				<div className="social col-md-4">
 					<ul className="nav nav-pills nav-stacked">
 					  <li><a href="#">
 					  		<img src="./icons/facebook-White.png" />Facebook</a></li>
