@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Navbar, Nav, NavItem } from 'react-bootstrap'
+import { Router, Route, Link, browserHistory } from 'react-router'
 
 export default class Header extends Component{
 	render(){
@@ -22,16 +23,16 @@ export default class Header extends Component{
 		        <Navbar>
 				    <Navbar.Header>
 				    	<Navbar.Brand>
-							<a href="#" id="logo"><img src="./icons/logo.svg" width="200px" /></a>
+				    		<Link to="/main" id="logo"><img src="./icons/logo.svg" width="200px" /></Link>
 						</Navbar.Brand>
 				      <Navbar.Toggle />
 				    </Navbar.Header>
 				    <Navbar.Collapse>
 				      <Nav pullRight>
-				        <NavItem eventKey={1} href="#">аренда офисов</NavItem>
-				        <NavItem eventKey={2} href="#">продажа офисов</NavItem>
-				        <NavItem eventKey={2} href="#">о бизнес-центре</NavItem>
-				        <NavItem eventKey={2} href="#">контакты</NavItem>
+				      	<li><Link to="/rent">аренда офисов</Link></li>
+				      	<li><Link to="/sale">продажа офисов</Link></li>
+				      	<li><Link to="/about">о бизнес-центре</Link></li>
+				      	<li><Link to="/contacts">контакты</Link></li>
 				      </Nav>
 				    </Navbar.Collapse>
 				</Navbar>

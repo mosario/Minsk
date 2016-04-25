@@ -1,21 +1,37 @@
 import React, { Component } from 'react'
 
 export default class Display extends Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			show: false
+		}
+	}
+
+	handleClick = () => this.setState({show: !this.state.show})
+
 	render(){
+		let filtered = [];
+		let data = this.props.data;
+		let count = this.state.show ? data.length-1 : 1;
+		for(let i = 0; i<=count; i++){
+			filtered.push(data[i]);
+		}
 		return <div className="display">
 		<div></div>
 		<div className="row">
-			<div className="col-md-3"><p>110</p></div>
-			<div className="col-md-3"><p>15 000</p></div>
-			<div className="col-md-3"><p>УСН</p></div>
-			<div className="col-md-3"><p>4</p></div>
-
-			<div className="col-md-3"><p>55-7</p></div>
-			<div className="col-md-3"><p>13 000</p></div>
-			<div className="col-md-3"><p>Включая НДС</p></div>
-			<div className="col-md-3"><p>Подвальный этаж</p></div>
+			{Object.keys(filtered).map((i) =>
+				<div key={i}> 
+					<div className="col-md-3"><p>{filtered[i].square}</p></div>
+					<div className="col-md-3"><p>{filtered[i].bet}</p></div>
+					<div className="col-md-3"><p>{filtered[i].tax}</p></div>
+					<div className="col-md-3"><p>{filtered[i].floor}</p></div>
+				</div>
+			)}
 		</div>
-		<p id="display-all">Смотреть все предложения</p>
+		<p id="display-all" onClick={::this.handleClick}>
+			{this.state.show ? 'Смотреть только часть' : 'Смотреть все предложения'}
+		</p>
 		</div>
 	}
 }

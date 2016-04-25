@@ -9,6 +9,8 @@ export default class Footer extends Component{
 	}
 	handleClick = (e) => this.setState({id:e.target.value});
 
+	handleScroll = () => window.scrollTo(0, 0);
+	
 	render(){
 		let id = this.state.id;
 		return <div className="footer">
@@ -40,7 +42,10 @@ export default class Footer extends Component{
 					  		<img src="./icons/facebook-White.png" />Facebook</a></li>
 					  <li><a href="#">
 					  		<img src="./icons/vkontakte-White.png" />ВКонтакте</a></li>
-					  <li><img src="./icons/up.png" style={{marginLeft:'15%'}} /></li>
+					  <li>
+					  	<img src="./icons/up.png" 
+					  		style={{marginLeft:'15%'}} 
+					  		onClick={::this.handleScroll} /></li>
 					</ul>
 				</div>
 				<div className="col-md-12">
