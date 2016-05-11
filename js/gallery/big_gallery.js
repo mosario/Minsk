@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import ReactSwipe from 'react-swipe'
+
 
 export default class BigGallery extends Component{
 	static defaultProps = {
@@ -130,10 +132,54 @@ export default class BigGallery extends Component{
 
 	handleClickLink = (key) => this.setState({link: key});
 	
+	next(e){
+		let current = this.state.current;
+		if(current > e){
+			this.refs.swipe.prev();
+		}else{
+			this.refs.swipe.next();
+		}
+		this.setState({current: e});
+	}
+
 	render(){
 		let link = this.state.link;
 		let url = this.state[link];
 		let current = this.state.current;
+		const big = <div className="container-img">
+			<ReactSwipe ref="swipe" className="carousel" swipeOptions={{continuous: true}}>
+				<div>
+					{Object.keys(url[0]).map((i) =>				
+						<img key={i} src={url[0][i]} />
+					)}
+				</div>
+				<div>
+					{Object.keys(url[1]).map((i) =>				
+						<img key={i} src={url[1][i]} />
+					)}
+				</div>
+				<div>
+					{Object.keys(url[2]).map((i) =>				
+						<img key={i} src={url[2][i]} />
+					)}
+				</div>
+			</ReactSwipe>
+		</div>
+
+		const small = <div className="container-img">
+				<ReactSwipe ref="swipe" className="carousel" swipeOptions={{continuous: true}}>
+
+	                <div><img style={{width:'100%',height:'auto'}} 
+					src={url[current][0]} /></div>
+
+	                <div><img style={{width:'100%',height:'auto'}} 
+					src={url[current][1]} /></div>
+
+	                <div><img style={{width:'100%',height:'auto'}} 
+					src={url[current][2]} /></div>
+
+	            </ReactSwipe>
+		</div>
 		return <div className="gallery-big">
 			<p>Галерея</p>
 			<ul className="nav nav-pills">
@@ -141,15 +187,11 @@ export default class BigGallery extends Component{
 			  <li><button onClick={this.handleClickLink.bind(this,'interior')}>интерьер</button></li>
 			  <li><button onClick={this.handleClickLink.bind(this,'common_areas')}>общие зоны</button></li>
 			</ul>
-			<div className="container-img">
-				{Object.keys(url[current]).map((i) =>
-					<img key={i} src={url[current][i]} />
-				)}
-			</div>
+			{window.screen.width >= 768 ? big : small}
 			<div className="gallery-button">
-				<button onClick={this.handleClick.bind(this,0)} id={current == 0 ? 'active' : 'none'}></button>
-				<button onClick={this.handleClick.bind(this,1)} id={current == 1 ? 'active' : 'none'}></button>
-				<button onClick={this.handleClick.bind(this,2)} id={current == 2 ? 'active' : 'none'}></button>
+				<button onClick={this.next.bind(this, 0)} id={current == 0 ? 'active' : 'none'}></button>
+				<button onClick={this.next.bind(this, 1)} ></button>
+				<button onClick={this.next.bind(this, 2)} ></button>
 			</div>
 		</div>
 	}

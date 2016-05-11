@@ -67,7 +67,8 @@ export default class Rent extends Component{
 				}
 			},
 			usn:true,
-			nds:true
+			nds:true,
+			order: {}
 		}
 	}
 	handleChange = (i, e) => {
@@ -114,7 +115,11 @@ export default class Rent extends Component{
 		state.result = result;
 		this.setState(state);
 	}
-	handleClick = (i) => this.setState({active: i});
+	handleClick = (i) => {
+		this.setState({active: i})
+		let element = document.querySelector(".header");
+		element.scrollIntoView();
+	}
 
 	handleUsn = () => {
 		let state = this.state;
@@ -128,17 +133,26 @@ export default class Rent extends Component{
 		this.condition(state);
 	}
 
+	handleOrder = () => {
+		let element = document.querySelector(".request-call");
+		element.scrollIntoView();
+		this.setState({order: data[this.state.active]})
+	}
 	render(){
 		let result = this.state.result;
-		return <div className="rent">
+		return <div className="calc__page rent">
 			<div className="header">
 				<p id="title">Аренда</p>
 				<div className="row">
 					{active(data[this.state.active])}
+					<div id="order" onClick={::this.handleOrder}>
+						<img src="./icons/phone2.png" />
+					</div>
 				</div>
 			</div>
-			<div className="row">
+			<div className="padd row">
 				<div className="col-md-4">
+					<p id="filtered_title">фильтровать офисы</p>
 					<div style={style.bottom}>
 						<div className="range-text">
 							<p id="title">Площадь</p>
@@ -224,15 +238,15 @@ export default class Rent extends Component{
 					</div>
 					{Object.keys(result).map((i) =>
 						<div className="result" key={i} onClick={this.handleClick.bind(this,i)}>
-							<div className="col-md-3"><p style={style.color}>{result[i].square}</p></div>
-							<div className="col-md-3"><p style={style.color}>{result[i].bet}</p></div>
+							<div className="col-md-3"><p style={style.color}>{result[i].square} м2</p></div>
+							<div className="col-md-3"><p style={style.color}>{result[i].bet.toLocaleString('ru-RU')} руб/мес.</p></div>
 							<div className="col-md-3"><p>{result[i].tax}</p></div>
 							<div className="col-md-3"><p>{result[i].floor}</p></div>
 						</div>
 					)}
 				</div>
 			</div>
-			<RequestCall />
+			<RequestCall order={this.state.order} />
 		</div>
 	}
 }

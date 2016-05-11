@@ -166,6 +166,7 @@
 	}
 }
 .main{
+	margin-top: -20px;
 	> .title{
 		background: inline('./image/DSC_2755.jpg') no-repeat;
 		background-size: 135%;
@@ -204,12 +205,12 @@
 		}
 		.about-item{
 			padding-bottom: 150px;																																									
-			width: 80%;
+			width: 70%;
     		margin: 0 auto;
 			img{
 				margin-left: 10%;
 				float: left;
-				margin-top: -30px;
+				margin-top: -10px;
 			}
 			#text{
 				p#title{
@@ -224,7 +225,7 @@
 				}
 				p{
 					padding-top: 30px;
-					width: 40%;
+					width: 50%;
 					margin-left: 30%;
 					font-family: 'Roboto';
 				}
@@ -265,13 +266,15 @@
 	.calculator{
 		margin-top: 200px;
 		ul{
-			max-width: 260px;
+			max-width: 330px;
 			margin: 0 auto;
 			@mixin navigate;
 			li{
 				button{
 					@mixin button;
+					padding: 20px 40px;
 					&#none{
+						padding: 20px 40px;
 						@mixin button;
 						background:#ddd;
 						color:#7a7575 !important;
@@ -290,11 +293,11 @@
 					text-align: center;
 					text-transform: uppercase;
 					margin-bottom: 0;
-				}
-				p#for{
-					font-family: 'Roboto';
-					font-size: 18px;
-					text-align: center;
+					span#for{
+						font-family: 'Roboto';
+						font-size: 18px;
+						text-align: center;
+					}
 				}
 				.range-text{
 					margin-top: 50px;
@@ -401,6 +404,8 @@
 	}
 	.range-text{
 		p#title{
+			width: 50%;
+			text-align: left;
 			font-family: 'Roboto';
 			font-size: 24px;
 			text-align: center;
@@ -533,34 +538,163 @@
 						color:#9d9d9d;
 		    			font-family: 'Roboto';
 		    			text-transform: uppercase; 
-						&:hover, :focus, :active{
+						&:hover, &:focus, &:active{
 							background-color: transparent;
-						};
+						}
 					}
 				}
 		    }
 	    }
 	}
 }
+.calc__page{
+	p#filtered_title{
+		text-align: left;
+	    font-family: Roboto;
+	    font-size: 24px;
+	    text-align: center;
+	    text-transform: uppercase;
+	    margin-bottom: 0;
+	    margin-top: 30px;
+	}
+}
+.calc__page #order{
+	margin-left: -100px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.calc__page .padd{
+	margin-left: 15px;
+    margin-right: 15px;
+}
+.contact{
+	.header{
+		background: #f7f7f7;
+    	margin-top: -20px;
+		p#title{
+			@mixin title;
+		}
+	}
+}
+.about{
+	margin-top: -20px;
+	.logo-group{
+		background: #d7d7d7;
+		height: 220px;
+		margin-top: 130px;
+		.row{
+			margin-left: 0;
+		    margin-right: 0;
+		    width: 40%;
+		    margin: 0 auto;
+		    .col-md-4{
+		    	height: 140px;
+		    	background: white;
+		    	border-radius: 50%;
+			    width: 140px;
+			    text-align: center;
+			    margin-top: 50px;
+    			margin-left: 20px;
+    			padding-top: 60px;
+    			font-family: 'Roboto';
+		    }
+		}
+	}
+	.about{
+		background: #f7f7f7;
+		/*padding-top: 140px;*/
+		p#title{
+			@mixin title;
+			margin-bottom: 150px; 
+		}
+		.about-item{
+			padding-bottom: 150px;																																									
+			width: 70%;
+    		margin: 0 auto;
+			img{
+				margin-left: 10%;
+				float: left;
+				margin-top: -10px;
+			}
+			#text{
+				p#title{
+					margin-bottom: 0;
+					text-align: left;
+					margin-left: 30%;
+					color:#666666;
+					font-family: 'Roboto-Regular';
+					width: 50%;
+					line-height: 50px;
+					padding-top: 0;
+				}
+				p{
+					padding-top: 30px;
+					width: 50%;
+					margin-left: 30%;
+					font-family: 'Roboto';
+				}
+			}
+		}
+	}
+}
+#height_300{
+	height: 300px !important; 
+}
 @media (min-width: 1600px){
 	.main .gallery-big img{
 		height: 400px;
+	}
+	.logo-group{
+		.row{
+			width: 30%;
+		}
 	}
 }
 @media (min-width: 1500px){
 	.main .gallery-big img{
 		height: 350px;
 	}
+	.logo-group{
+		.row{
+			width: 33%;
+		}
+	}
 }
 @media (min-width: 1400px){
 	.main .gallery-big img{
 		height: 300px;
 	}
+	.logo-group{
+		.row{
+			width: 35%;
+		}
+	}
+}
+@media (min-width: 1300px){
+	.logo-group{
+		.row{
+			width: 40%;
+		}
+	}
+}
+@media (min-width: 1200px){
+	.logo-group{
+		.row{
+			width: 45%;
+		}
+	}
 }
 @media (max-width: 1199px){
 	.logo-group{
 		.row{
-			width: 55% !important;
+			width: 45% !important;
+		}
+	}
+}
+@media (max-width: 1066px){
+	.logo-group{
+		.row{
+			width: 50% !important;
 		}
 	}
 }
@@ -570,6 +704,77 @@
 	}
 }
 @media (max-width: 990px){
+	.main .calculator .row .col-md-3 .range-edit{
+		display: none;
+	}
+	.main .calculator .row{
+			.col-md-3{
+				.range-text{
+					margin-bottom: 50px;
+					margin-top: 10px;
+					input{
+						width: 40%;
+					}
+					ul{
+						max-width: 990px;
+						margin-top: -70px;
+						li{
+							width: 48.5%;
+							button{
+								width: 100%;
+							}
+						}
+					}
+			}
+			&:last-child{
+				.range-text{
+					margin-top: 10px !important;
+				}
+			}
+		}
+	}
+	.main .calculator .row .col-md-3 .range-text
+	.calc__page{
+		.header{
+			.row{
+				.col-md-8{
+					width: 95%;
+				}
+				.col-md-3{
+					width: 25%;
+					float: left;
+					&:last-child{
+						padding-right:0;
+						width: 20%;
+					}
+				}
+			}
+		}
+		.row{
+			.col-md-4{
+				.range-text{
+					width: 190px;
+					margin: 0 auto;
+					margin-bottom: 15px;
+					p{
+						width: 200px !important;
+						text-align: center !important;
+					}
+				}
+			}
+			.col-md-3{
+				width: 25%;
+				float: left;
+			}
+			.show p{
+				padding: 30px 30%;
+			}
+			.result .col-md-3{
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+	}
 	.footer{
 		height: auto !important;
 		.col-md-4{
@@ -635,6 +840,13 @@
 		}
 	}
 }
+@media (max-width: 990px){
+	.main .calculator .display .col-md-3{
+		text-align: center;
+	    width: 25%;
+	    float: left;
+	}
+}
 @media (max-width: 868px){
 	.header{
 		.navbar-default ul li a{
@@ -659,6 +871,12 @@
 	}
 }
 @media (max-width: 768px){
+	.navbar-default>.container>.navbar-collapse{
+		margin-top: 60px;
+	}
+	.contact{
+		margin-top: 30px;
+	}
 	.gallery-big{
 		.container-img{
 			img{
@@ -667,6 +885,7 @@
 		}
 	}
 	.about{
+		margin-top: 10px;
 		p#title{
 			text-align: center !important;
 			margin-left: 0 !important;
@@ -721,9 +940,19 @@
 	}
 }
 @media (max-width: 766px){
+	.main{
+		margin-top: 10px;
+	}
 	.navbar-default{
 		ul{
 			margin-top: 70px;
+		}
+	}
+	.calc__page{
+		margin-top: 30px;
+		#order{
+			margin-left: -70px;
+		    margin-top: 20px;
 		}
 	}
 }
@@ -769,6 +998,17 @@
 	}
 	.gallery-button{
 		left:40% !important;
+	}
+}
+@media (max-width: 526px){
+	.main .calculator .display .col-md-3{
+		padding-left: 0;
+    	padding-right: 0;
+	}
+}
+@media (max-width: 495px){
+	.main .calculator .row .col-md-3 .range-text ul li{
+		width: 47.5%;
 	}
 }
 @media (max-width: 407px){

@@ -1,4 +1,21 @@
 import React, { Component, findDOMNode } from 'react'
+import { Link } from 'react-router'
+
+function scrollToTop(scrollDuration) {
+	const scrollHeight = window.scrollY,
+	scrollStep = Math.PI / ( scrollDuration / 15 ),
+	cosParameter = scrollHeight / 2;
+	var scrollCount = 0,
+	scrollMargin,
+	scrollInterval = setInterval( function() {
+	if(window.scrollY != 0){
+		scrollCount = scrollCount + 1;  
+		scrollMargin = cosParameter - cosParameter * Math.cos( scrollCount * scrollStep );
+		window.scrollTo( 0, ( scrollHeight - scrollMargin ) );
+	} 
+	else clearInterval(scrollInterval); 
+	}, 15);
+}
 
 export default class Footer extends Component{
 	constructor(){
@@ -9,8 +26,8 @@ export default class Footer extends Component{
 	}
 	handleClick = (e) => this.setState({id:e.target.value});
 
-	handleScroll = () => window.scrollTo(0, 0);
-	
+	handleScroll = () => scrollToTop(1000);
+
 	render(){
 		let id = this.state.id;
 		return <div className="footer">
@@ -49,12 +66,12 @@ export default class Footer extends Component{
 					</ul>
 				</div>
 				<div className="col-md-12">
-					<ul className="nav nav-pills">
-					  <li><a href="#">главная</a></li>
-					  <li><a href="#">аренда офисов</a></li>
-					  <li><a href="#">продажа офисов</a></li>
-					  <li><a href="#">о бизнес центре</a></li>
-					  <li><a href="#">контакты</a></li>
+					<ul className="nav nav-pills" onClick={::this.handleScroll}>
+					  <li><Link to="/minsk/">главная</Link></li>
+					  <li><Link to="/minsk/rent">аренда офисов</Link></li>
+					  <li><Link to="/minsk/sale">продажа офисов</Link></li>
+					  <li><Link to="/minsk/about">о бизнес-центре</Link></li>
+				      <li><Link to="/minsk/contacts">контакты</Link></li>
 					</ul>
 				</div>
 			</div>

@@ -22,8 +22,8 @@ export default class Display extends Component{
 		<div className="row">
 			{Object.keys(filtered).map((i) =>
 				<div key={i}> 
-					<div className="col-md-3"><p>{filtered[i].square}</p></div>
-					<div className="col-md-3"><p>{filtered[i].bet}</p></div>
+					<div className="col-md-3"><p>{filtered[i].square} м2</p></div>
+					<div className="col-md-3"><p>{filtered[i].bet.toLocaleString('ru-RU')} руб/мес.</p></div>
 					<div className="col-md-3"><p>{filtered[i].tax}</p></div>
 					<div className="col-md-3"><p>{filtered[i].floor}</p></div>
 				</div>

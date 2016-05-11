@@ -1,18 +1,9 @@
 var path = require('path');
 var webpack = require('webpack');
-var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var url = require('url-loader');
-var plugins = [];
-
-plugins.push(new UglifyJsPlugin({ minimize: true }));
 
 module.exports = {
-    // entry: getEntrySources(['./src/js/entry.js']),
-    // output: {
-    //     publicPath: 'http://localhost:8080/',
-    //     filename: 'build/bundle.js'
-    // },
     entry: [
         path.join(__dirname, './js/app.js')
     ], 
@@ -20,6 +11,9 @@ module.exports = {
         path: path.join(__dirname, 'build/'),
         filename:'bundle.js'
     },
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin()
+    ],
     devtool: 'eval',
     module: {
         preLoaders: [
@@ -55,24 +49,8 @@ module.exports = {
             { test: /\.css$/, loader: "style-loader!css-loader!postcss-loader" }
         ]
     },
-    file: function(){
-    	return [
-    		require('./image/DSC_2624.jpg')
-    	]
-    },
+
     postcss: function () {
         return [require('autoprefixer'), require('precss'), require('postcss-mixins'), require('postcss-assets')];
-    },
-    plugins: [
-        new ExtractTextPlugin("styles.css")
-    ]
-};
-
-function getEntrySources(sources) {
-    if (process.env.NODE_ENV !== 'production') {
-        sources.push('webpack-dev-server/client?http://localhost:8080');
-        sources.push('webpack/hot/only-dev-server');
     }
-
-    return sources;
-}
+};

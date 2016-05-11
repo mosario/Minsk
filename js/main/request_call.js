@@ -37,6 +37,11 @@ export default class RequestCall extends Component{
 	}
 	render(){
 		let error = this.state.error;
+		const { order } = this.props;
+
+		const message = 'Здравствуйте, я хотел бы преобрести офис с площадью ' 
+			+ order.square + 'кв.м и ' + order.bet + ' ставкой';
+
 		return <div className="request-call">
 			<p id="title">Заказать звонок</p>
 			<p id="text">{REQUEST_CALL}</p>
@@ -55,7 +60,9 @@ export default class RequestCall extends Component{
 					<input ref="company" type="text" placeholder="ваше компания..." />
 				</div>
 				<div className="col-md-12">
-					<input ref="message" type="text" placeholder="сообщение..." />
+					<input ref="message" type="text" 
+						placeholder="сообщение..."
+						value={Object.keys(order) != '' ? message : ''} />
 				</div>
 				<div className="request-send">
 					<img onClick={::this.handleClick} src="./icons/send.png" />

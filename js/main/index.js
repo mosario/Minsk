@@ -9,6 +9,7 @@ import LogoGroup from './logo-group'
 
 export default class Main extends Component{
 	render(){
+		let order = {}
 		return <div className="main">
 			<div className="title">
 				<p id="t1" style={{paddingTop:10}}>бизнес центр</p>
@@ -22,7 +23,7 @@ export default class Main extends Component{
 			<About />
 			<BigGallery />
 			<Calculator />
-			<RequestCall />
+			<RequestCall order={order}/>
 			<LogoGroup />
 		</div>
 	}

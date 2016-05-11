@@ -147,8 +147,7 @@ export default class Calculator extends Component{
 			</ul>
 			<div className="row">
 				<div className="col-md-3">
-					<p id="title">Площадь</p>
-					<p id="for">М 2</p>
+					<p id="title">Площадь <span id="for"> М 2</span></p>
 					<div className="range-text">
 						<input type="text" placeholder="ОТ" 
 							ref="square_to"
@@ -170,8 +169,7 @@ export default class Calculator extends Component{
 					</div>
 				</div>
 				<div className="col-md-3">
-					<p id="title">Ставка</p>
-					<p id="for">руб/мес</p>
+					<p id="title">Ставка <span id="for"> руб/мес</span></p>
 					<div className="range-text">
 						<input type="text" placeholder="ОТ"
 							ref="bet_to"

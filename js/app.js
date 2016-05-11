@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import ReactDOM, {render} from 'react-dom'
 
 import { Navbar, Nav, NavItem } from 'react-bootstrap'
-import { Router, Route, Link, browserHistory, hashHistory, Redirect,IndexRedirect } from 'react-router'
+import { Router, Route, browserHistory, hashHistory, Redirect, IndexRedirect, IndexRoute } from 'react-router'
 
 import Header from './header'
 import Main from './main'
@@ -27,15 +27,16 @@ export default class App extends Component{
 
 let node = document.getElementById('app')
 render((
-  <Router history={hashHistory}>
-    <Route path="/" component={App}>
-      <IndexRedirect to="main" />
-      <Route path="/rent" component={Rent}/>
-      <Route path="/sale" component={Sale}/>
-      <Route path="/about" component={About}/>
-      <Route path="/contacts" component={Contacts}/>
+  <Router history={browserHistory}>
+    <Route path="/minsk/" component={App}>
+      <IndexRoute component={Main} />
+      <Route path="/minsk/rent" component={Rent}/>
+      <Route path="/minsk/sale" component={Sale}/>
+      <Route path="/minsk/about" component={About}/>
+      <Route path="/minsk/contacts" component={Contacts}/>
       <Route path="main" component={Main}/>
     	<Redirect from="*" to="main" />
+      <Route path='*' component={app} />
     </Route>
   </Router>
 ), node)
